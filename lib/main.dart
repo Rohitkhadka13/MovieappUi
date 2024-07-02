@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:movie_ui/UI/details.dart';
+
 import 'package:movie_ui/UI/ui.dart';
 
 void main() {

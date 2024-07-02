@@ -2,9 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:movie_ui/model.dart';
 import 'package:movie_ui/movie_repository.dart';
 
-class MovieUi extends StatelessWidget {
+class MovieUi extends StatefulWidget {
   const MovieUi({Key? key}) : super(key: key);
 
+  @override
+  State<MovieUi> createState() => _MovieUiState();
+}
+
+class _MovieUiState extends State<MovieUi> {
   @override
   Widget build(BuildContext context) {
     List<Movie> movies = MovieRepository.getAllMovies();
@@ -25,10 +30,12 @@ class MovieUi extends StatelessWidget {
                     color: Colors.white,
                   ),
                   Expanded(
-                    child: SizedBox(),
+                    child: SizedBox(
+                      width: 10,
+                    ),
                   ),
                   Icon(
-                    Icons.equalizer,
+                    Icons.search,
                     size: 30,
                     color: Colors.white,
                   ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movie_ui/UI/details.dart';
+import 'package:movie_ui/movie_repository.dart';
 
 class CustomImageWidget extends StatelessWidget {
   final String imageUrl;
@@ -15,6 +16,9 @@ class CustomImageWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<Movie> movies = MovieRepository.getAllMovies();
+    Movie selectedMovie = movies.firstWhere((movie) => movie.name == name);
+
     return InkWell(
       onTap: () {
         Navigator.push(
@@ -23,6 +27,7 @@ class CustomImageWidget extends StatelessWidget {
             builder: (context) => Details(
               imageUrl: imageUrl,
               name: name,
+              text: selectedMovie.text,
             ),
           ),
         );
